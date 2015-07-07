@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		A8E58E3F6F600374D0E3D945 /* Pods_SwiftTTTSpecs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ADF756A52041EBE94F6348 /* Pods_SwiftTTTSpecs.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		FF30590E1B4C8B72004CA2A6 /* SomethingSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF30590D1B4C8B72004CA2A6 /* SomethingSpec.swift */; };
+		FF3059131B4C8C44004CA2A6 /* BoardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF30590F1B4C8C44004CA2A6 /* BoardHelper.swift */; };
+		FF3059141B4C8C44004CA2A6 /* BoardSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3059101B4C8C44004CA2A6 /* BoardSpec.swift */; };
+		FF3059151B4C8C44004CA2A6 /* GameControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3059111B4C8C44004CA2A6 /* GameControllerSpec.swift */; };
+		FF3059161B4C8C44004CA2A6 /* RulesSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3059121B4C8C44004CA2A6 /* RulesSpec.swift */; };
+		FF30591C1B4C8C67004CA2A6 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3059181B4C8C67004CA2A6 /* Board.swift */; };
+		FF30591D1B4C8C67004CA2A6 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3059191B4C8C67004CA2A6 /* GameController.swift */; };
+		FF30591E1B4C8C67004CA2A6 /* Mark.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF30591A1B4C8C67004CA2A6 /* Mark.swift */; };
+		FF30591F1B4C8C67004CA2A6 /* Rules.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF30591B1B4C8C67004CA2A6 /* Rules.swift */; };
 		FFDD17FD1B4C899600C64381 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDD17FC1B4C899600C64381 /* AppDelegate.swift */; };
 		FFDD17FF1B4C899600C64381 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDD17FE1B4C899600C64381 /* ViewController.swift */; };
 		FFDD18021B4C899600C64381 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFDD18001B4C899600C64381 /* Main.storyboard */; };
@@ -29,6 +38,15 @@
 		93FA4AB4B4100DB8B203DC63 /* Pods-SwiftTTTSpecs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftTTTSpecs.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftTTTSpecs/Pods-SwiftTTTSpecs.release.xcconfig"; sourceTree = "<group>"; };
 		97C79A3E7C908CAFBA103D04 /* Pods-SwiftTTTSpecs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftTTTSpecs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftTTTSpecs/Pods-SwiftTTTSpecs.debug.xcconfig"; sourceTree = "<group>"; };
 		A9ADF756A52041EBE94F6348 /* Pods_SwiftTTTSpecs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftTTTSpecs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF30590D1B4C8B72004CA2A6 /* SomethingSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SomethingSpec.swift; sourceTree = "<group>"; };
+		FF30590F1B4C8C44004CA2A6 /* BoardHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardHelper.swift; sourceTree = "<group>"; };
+		FF3059101B4C8C44004CA2A6 /* BoardSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardSpec.swift; sourceTree = "<group>"; };
+		FF3059111B4C8C44004CA2A6 /* GameControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameControllerSpec.swift; sourceTree = "<group>"; };
+		FF3059121B4C8C44004CA2A6 /* RulesSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesSpec.swift; sourceTree = "<group>"; };
+		FF3059181B4C8C67004CA2A6 /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		FF3059191B4C8C67004CA2A6 /* GameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
+		FF30591A1B4C8C67004CA2A6 /* Mark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mark.swift; sourceTree = "<group>"; };
+		FF30591B1B4C8C67004CA2A6 /* Rules.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rules.swift; sourceTree = "<group>"; };
 		FFDD17F71B4C899600C64381 /* SwiftTTT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftTTT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFDD17FB1B4C899600C64381 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FFDD17FC1B4C899600C64381 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +94,26 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		FF3059171B4C8C4A004CA2A6 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				FF30590F1B4C8C44004CA2A6 /* BoardHelper.swift */,
+				FF3059101B4C8C44004CA2A6 /* BoardSpec.swift */,
+				FF3059121B4C8C44004CA2A6 /* RulesSpec.swift */,
+			);
+			name = Game;
+			sourceTree = "<group>";
+		};
+		FF3059201B4C8C6C004CA2A6 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				FF3059181B4C8C67004CA2A6 /* Board.swift */,
+				FF30591A1B4C8C67004CA2A6 /* Mark.swift */,
+				FF30591B1B4C8C67004CA2A6 /* Rules.swift */,
+			);
+			name = Game;
+			sourceTree = "<group>";
+		};
 		FFDD17EE1B4C899600C64381 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +137,8 @@
 		FFDD17F91B4C899600C64381 /* SwiftTTT */ = {
 			isa = PBXGroup;
 			children = (
+				FF3059201B4C8C6C004CA2A6 /* Game */,
+				FF3059191B4C8C67004CA2A6 /* GameController.swift */,
 				FFDD17FC1B4C899600C64381 /* AppDelegate.swift */,
 				FFDD17FE1B4C899600C64381 /* ViewController.swift */,
 				FFDD18001B4C899600C64381 /* Main.storyboard */,
@@ -120,10 +160,12 @@
 		FFDD180F1B4C899600C64381 /* SwiftTTTSpecs */ = {
 			isa = PBXGroup;
 			children = (
+				FF3059171B4C8C4A004CA2A6 /* Game */,
+				FF3059111B4C8C44004CA2A6 /* GameControllerSpec.swift */,
 				FFDD18101B4C899600C64381 /* Supporting Files */,
+				FF30590D1B4C8B72004CA2A6 /* SomethingSpec.swift */,
 			);
-			name = SwiftTTTSpecs;
-			path = SwiftTTTTests;
+			path = SwiftTTTSpecs;
 			sourceTree = "<group>";
 		};
 		FFDD18101B4C899600C64381 /* Supporting Files */ = {
@@ -286,7 +328,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFDD17FF1B4C899600C64381 /* ViewController.swift in Sources */,
+				FF30591D1B4C8C67004CA2A6 /* GameController.swift in Sources */,
 				FFDD17FD1B4C899600C64381 /* AppDelegate.swift in Sources */,
+				FF30591C1B4C8C67004CA2A6 /* Board.swift in Sources */,
+				FF30591E1B4C8C67004CA2A6 /* Mark.swift in Sources */,
+				FF30591F1B4C8C67004CA2A6 /* Rules.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +340,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF3059151B4C8C44004CA2A6 /* GameControllerSpec.swift in Sources */,
+				FF3059141B4C8C44004CA2A6 /* BoardSpec.swift in Sources */,
+				FF3059131B4C8C44004CA2A6 /* BoardHelper.swift in Sources */,
+				FF30590E1B4C8B72004CA2A6 /* SomethingSpec.swift in Sources */,
+				FF3059161B4C8C44004CA2A6 /* RulesSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +486,7 @@
 			baseConfigurationReference = 97C79A3E7C908CAFBA103D04 /* Pods-SwiftTTTSpecs.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -443,9 +495,10 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = SwiftTTTTests/Info.plist;
+				INFOPLIST_FILE = SwiftTTTSpecs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftTTT.app/SwiftTTT";
 			};
 			name = Debug;
@@ -455,11 +508,12 @@
 			baseConfigurationReference = 93FA4AB4B4100DB8B203DC63 /* Pods-SwiftTTTSpecs.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = SwiftTTTTests/Info.plist;
+				INFOPLIST_FILE = SwiftTTTSpecs/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftTTT.app/SwiftTTT";
