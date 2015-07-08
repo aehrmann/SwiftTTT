@@ -1,6 +1,16 @@
 import UIKit
 
 public class GameViewController: UICollectionViewController {
-    public let board = Board()
-    public let rules = Rules()
+
+    @IBOutlet public weak var boardCollectionView: UICollectionView!
+
+    public var board: Board?
+    public var rules: Rules?
+
+    override public func viewDidLoad() {
+        super.viewDidLoad()
+        board = Board()
+        rules = Rules()
+        boardCollectionView.dataSource = self
+    }
 }
