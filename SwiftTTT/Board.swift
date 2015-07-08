@@ -29,4 +29,13 @@ public class Board {
         }
         return true
     }
+
+    public func isEmpty() -> Bool {
+        for mark in marks {
+            if mark != .Blank {
+                return false
+            }
+        }
+        return true
+    }
 }

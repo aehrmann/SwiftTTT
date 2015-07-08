@@ -44,6 +44,27 @@ public class BoardSpec: QuickSpec {
                     }
                 }
             }
+
+            describe("Checking if the board is empty") {
+                var board: Board!
+
+                beforeEach {
+                    board = Board()
+                }
+
+                context("when the board is initially created") {
+                    it("is empty") {
+                        expect(board.isEmpty()).to(beTrue())
+                    }
+                }
+                context("when a mark has been placed on the board") {
+                    it("is not empty") {
+                        board.placeMark(.X, at: 0)
+
+                        expect(board.isEmpty()).to(beFalse())
+                    }
+                }
+            }
         }
     }
 }
