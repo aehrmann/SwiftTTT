@@ -47,6 +47,7 @@
 		FF3059191B4C8C67004CA2A6 /* GameController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		FF30591A1B4C8C67004CA2A6 /* Mark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mark.swift; sourceTree = "<group>"; };
 		FF30591B1B4C8C67004CA2A6 /* Rules.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rules.swift; sourceTree = "<group>"; };
+		FF3059221B4C96DE004CA2A6 /* SwiftTTT.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = SwiftTTT.playground; path = SwiftTTT/SwiftTTT.playground; sourceTree = "<group>"; };
 		FFDD17F71B4C899600C64381 /* SwiftTTT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftTTT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFDD17FB1B4C899600C64381 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FFDD17FC1B4C899600C64381 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				FFDD17F91B4C899600C64381 /* SwiftTTT */,
+				FF3059221B4C96DE004CA2A6 /* SwiftTTT.playground */,
 				FFDD180F1B4C899600C64381 /* SwiftTTTSpecs */,
 				FFDD17F81B4C899600C64381 /* Products */,
 				E2546C6B41833B74CE0F72E2 /* Pods */,
