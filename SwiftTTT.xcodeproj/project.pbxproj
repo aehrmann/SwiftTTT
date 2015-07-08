@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		A8E58E3F6F600374D0E3D945 /* Pods_SwiftTTTSpecs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ADF756A52041EBE94F6348 /* Pods_SwiftTTTSpecs.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		FF30590E1B4C8B72004CA2A6 /* SomethingSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF30590D1B4C8B72004CA2A6 /* SomethingSpec.swift */; };
 		FF3059131B4C8C44004CA2A6 /* BoardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF30590F1B4C8C44004CA2A6 /* BoardHelper.swift */; };
 		FF3059141B4C8C44004CA2A6 /* BoardSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3059101B4C8C44004CA2A6 /* BoardSpec.swift */; };
 		FF3059151B4C8C44004CA2A6 /* GameControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3059111B4C8C44004CA2A6 /* GameControllerSpec.swift */; };
@@ -38,7 +37,6 @@
 		93FA4AB4B4100DB8B203DC63 /* Pods-SwiftTTTSpecs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftTTTSpecs.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftTTTSpecs/Pods-SwiftTTTSpecs.release.xcconfig"; sourceTree = "<group>"; };
 		97C79A3E7C908CAFBA103D04 /* Pods-SwiftTTTSpecs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftTTTSpecs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftTTTSpecs/Pods-SwiftTTTSpecs.debug.xcconfig"; sourceTree = "<group>"; };
 		A9ADF756A52041EBE94F6348 /* Pods_SwiftTTTSpecs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftTTTSpecs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FF30590D1B4C8B72004CA2A6 /* SomethingSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SomethingSpec.swift; sourceTree = "<group>"; };
 		FF30590F1B4C8C44004CA2A6 /* BoardHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardHelper.swift; sourceTree = "<group>"; };
 		FF3059101B4C8C44004CA2A6 /* BoardSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardSpec.swift; sourceTree = "<group>"; };
 		FF3059111B4C8C44004CA2A6 /* GameControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameControllerSpec.swift; sourceTree = "<group>"; };
@@ -165,7 +163,6 @@
 				FF3059171B4C8C4A004CA2A6 /* Game */,
 				FF3059111B4C8C44004CA2A6 /* GameControllerSpec.swift */,
 				FFDD18101B4C899600C64381 /* Supporting Files */,
-				FF30590D1B4C8B72004CA2A6 /* SomethingSpec.swift */,
 			);
 			path = SwiftTTTSpecs;
 			sourceTree = "<group>";
@@ -345,7 +342,6 @@
 				FF3059151B4C8C44004CA2A6 /* GameControllerSpec.swift in Sources */,
 				FF3059141B4C8C44004CA2A6 /* BoardSpec.swift in Sources */,
 				FF3059131B4C8C44004CA2A6 /* BoardHelper.swift in Sources */,
-				FF30590E1B4C8B72004CA2A6 /* SomethingSpec.swift in Sources */,
 				FF3059161B4C8C44004CA2A6 /* RulesSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
