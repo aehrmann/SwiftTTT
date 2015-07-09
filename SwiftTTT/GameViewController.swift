@@ -7,16 +7,7 @@ public class GameViewController: UICollectionViewController {
 
     override public func viewDidLoad() {
         super.viewDidLoad()
-        self.board = Board()
-        self.rules = Rules()
-    }
-
-    override public func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 9
-    }
-
-    override public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("BoardCell", forIndexPath: indexPath) as! UICollectionViewCell
-        return cell
+        board = Board()
+        rules = Rules()
     }
 }
