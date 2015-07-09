@@ -5,23 +5,12 @@ import SwiftTTT
 class GameViewControllerSpec: QuickSpec {
     override func spec() {
 
-        func createTestCollectionView() -> UICollectionView {
-            let collectionViewLayout = UICollectionViewFlowLayout()
-            let aFrame = CGRect()
-            let collectionView = UICollectionView(frame: aFrame, collectionViewLayout: collectionViewLayout)
-            return collectionView
-        }
-
         describe("GameViewController") {
             var controller: GameViewController!
-            var collectionView: UICollectionView!
 
             describe("Loading the view") {
                 beforeEach {
                     controller = GameViewController()
-                    collectionView = createTestCollectionView()
-                    controller.boardCollectionView = collectionView
-
                     controller.viewDidLoad()
                 }
 
@@ -32,9 +21,18 @@ class GameViewControllerSpec: QuickSpec {
                 it("constructs the rules for the game") {
                     expect(controller.rules).notTo(beNil())
                 }
+            }
 
-                it("sets its collection view's data source") {
-                    expect(controller.boardCollectionView.dataSource).to(beIdenticalTo(controller))
+            describe("Playing the game") {
+                it("shows 9 cells") {
+                    controller = GameViewController()
+
+                    let collectionView = UICollectionView(frame: CGRect(), collectionViewLayout:
+                        UICollectionViewFlowLayout())
+                    controller.collectionView = collectionView
+                    controller.viewDidLoad()
+                    controller.collectionView?.reloadData()
+                    expect(collectionView.numberOfItemsInSection(0)).to(equal(9))
                 }
             }
         }

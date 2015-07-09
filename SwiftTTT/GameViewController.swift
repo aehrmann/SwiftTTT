@@ -2,15 +2,21 @@ import UIKit
 
 public class GameViewController: UICollectionViewController {
 
-    @IBOutlet public weak var boardCollectionView: UICollectionView!
-
-    public var board: Board?
-    public var rules: Rules?
+    public var board: Board!
+    public var rules: Rules!
 
     override public func viewDidLoad() {
         super.viewDidLoad()
-        board = Board()
-        rules = Rules()
-        boardCollectionView.dataSource = self
+        self.board = Board()
+        self.rules = Rules()
+    }
+
+    override public func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 9
+    }
+
+    override public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("BoardCell", forIndexPath: indexPath) as! UICollectionViewCell
+        return cell
     }
 }
