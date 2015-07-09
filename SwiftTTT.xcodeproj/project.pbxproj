@@ -10,12 +10,12 @@
 		A8E58E3F6F600374D0E3D945 /* Pods_SwiftTTTSpecs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ADF756A52041EBE94F6348 /* Pods_SwiftTTTSpecs.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		FF3059131B4C8C44004CA2A6 /* BoardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF30590F1B4C8C44004CA2A6 /* BoardHelper.swift */; };
 		FF3059141B4C8C44004CA2A6 /* BoardSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3059101B4C8C44004CA2A6 /* BoardSpec.swift */; };
-		FF3059151B4C8C44004CA2A6 /* GameViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3059111B4C8C44004CA2A6 /* GameViewControllerSpec.swift */; };
 		FF3059161B4C8C44004CA2A6 /* RulesSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3059121B4C8C44004CA2A6 /* RulesSpec.swift */; };
 		FF30591C1B4C8C67004CA2A6 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3059181B4C8C67004CA2A6 /* Board.swift */; };
-		FF30591D1B4C8C67004CA2A6 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3059191B4C8C67004CA2A6 /* GameViewController.swift */; };
 		FF30591E1B4C8C67004CA2A6 /* Mark.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF30591A1B4C8C67004CA2A6 /* Mark.swift */; };
 		FF30591F1B4C8C67004CA2A6 /* Rules.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF30591B1B4C8C67004CA2A6 /* Rules.swift */; };
+		FFAFE32E1B4F05EE009AA6B8 /* MainViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAFE32D1B4F05EE009AA6B8 /* MainViewControllerSpec.swift */; };
+		FFAFE3301B4F0613009AA6B8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAFE32F1B4F0613009AA6B8 /* MainViewController.swift */; };
 		FFDD17FD1B4C899600C64381 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDD17FC1B4C899600C64381 /* AppDelegate.swift */; };
 		FFDD18021B4C899600C64381 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFDD18001B4C899600C64381 /* Main.storyboard */; };
 		FFDD18041B4C899600C64381 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFDD18031B4C899600C64381 /* Images.xcassets */; };
@@ -38,13 +38,13 @@
 		A9ADF756A52041EBE94F6348 /* Pods_SwiftTTTSpecs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftTTTSpecs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF30590F1B4C8C44004CA2A6 /* BoardHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardHelper.swift; sourceTree = "<group>"; };
 		FF3059101B4C8C44004CA2A6 /* BoardSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardSpec.swift; sourceTree = "<group>"; };
-		FF3059111B4C8C44004CA2A6 /* GameViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewControllerSpec.swift; sourceTree = "<group>"; };
 		FF3059121B4C8C44004CA2A6 /* RulesSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RulesSpec.swift; sourceTree = "<group>"; };
 		FF3059181B4C8C67004CA2A6 /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
-		FF3059191B4C8C67004CA2A6 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		FF30591A1B4C8C67004CA2A6 /* Mark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mark.swift; sourceTree = "<group>"; };
 		FF30591B1B4C8C67004CA2A6 /* Rules.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rules.swift; sourceTree = "<group>"; };
 		FF3059221B4C96DE004CA2A6 /* SwiftTTT.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = SwiftTTT.playground; path = SwiftTTT/SwiftTTT.playground; sourceTree = "<group>"; };
+		FFAFE32D1B4F05EE009AA6B8 /* MainViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewControllerSpec.swift; sourceTree = "<group>"; };
+		FFAFE32F1B4F0613009AA6B8 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FFDD17F71B4C899600C64381 /* SwiftTTT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftTTT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFDD17FB1B4C899600C64381 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FFDD17FC1B4C899600C64381 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -114,7 +114,7 @@
 		FF41F0AC1B4EBA0D009061C5 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
-				FF3059191B4C8C67004CA2A6 /* GameViewController.swift */,
+				FFAFE32F1B4F0613009AA6B8 /* MainViewController.swift */,
 			);
 			name = Interface;
 			sourceTree = "<group>";
@@ -122,7 +122,7 @@
 		FF41F0AD1B4EBA1C009061C5 /* Interface */ = {
 			isa = PBXGroup;
 			children = (
-				FF3059111B4C8C44004CA2A6 /* GameViewControllerSpec.swift */,
+				FFAFE32D1B4F05EE009AA6B8 /* MainViewControllerSpec.swift */,
 			);
 			name = Interface;
 			sourceTree = "<group>";
@@ -339,11 +339,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF30591D1B4C8C67004CA2A6 /* GameViewController.swift in Sources */,
 				FFDD17FD1B4C899600C64381 /* AppDelegate.swift in Sources */,
 				FF30591C1B4C8C67004CA2A6 /* Board.swift in Sources */,
 				FF30591E1B4C8C67004CA2A6 /* Mark.swift in Sources */,
 				FF30591F1B4C8C67004CA2A6 /* Rules.swift in Sources */,
+				FFAFE3301B4F0613009AA6B8 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,9 +351,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF3059151B4C8C44004CA2A6 /* GameViewControllerSpec.swift in Sources */,
 				FF3059141B4C8C44004CA2A6 /* BoardSpec.swift in Sources */,
 				FF3059131B4C8C44004CA2A6 /* BoardHelper.swift in Sources */,
+				FFAFE32E1B4F05EE009AA6B8 /* MainViewControllerSpec.swift in Sources */,
 				FF3059161B4C8C44004CA2A6 /* RulesSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

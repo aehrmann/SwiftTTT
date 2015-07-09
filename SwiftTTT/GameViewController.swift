@@ -1,13 +1,7 @@
 import UIKit
 
-public class GameViewController: UICollectionViewController {
+public class GameViewController: UIViewController {
 
-    public var board: Board!
-    public var rules: Rules!
+    @IBOutlet public weak var cellLabel: UILabel!
 
-    override public func viewDidLoad() {
-        super.viewDidLoad()
-        board = Board()
-        rules = Rules()
-    }
 }
