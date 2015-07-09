@@ -24,29 +24,46 @@ class MainViewControllerSpec: QuickSpec {
             }
 
             describe("Updating a cell") {
-                beforeEach {
-                    controller = MainViewController()
-                    buttons = [UIButton](count: 9, repeatedValue: UIButton())
-                    controller.gridButtons = buttons
+                func createButtons() -> [UIButton] {
+                    var buttons = [UIButton]()
+                    for i in 0..<9 {
+                        buttons.append(UIButton())
+                    }
+                    return buttons
                 }
+
                 context("when a cell is blank") {
-                    it("alternates between adding an X and adding an O") {
-                        controller.viewDidLoad()
+                    let controller = MainViewController()
+                    controller.gridButtons = createButtons()
+                    controller.viewDidLoad()
 
+                    it("adds an X to the first only") {
                         controller.markCell(0)
-                        controller.markCell(1)
-                        controller.markCell(2)
-
                         expect(controller.gridButtons[0].titleForState(.Normal)).to(equal("X"))
-                        expect(controller.gridButtons[1].titleForState(.Normal)).to(equal("O"))
-                        expect(controller.gridButtons[2].titleForState(.Normal)).to(equal("X"))
+                    }
 
+                    it("adds an O to the second cell") {
+                        controller.markCell(1)
+                        expect(controller.gridButtons[1].titleForState(.Normal)).to(equal("O"))
+                    }
+
+                    it("adds an X to the third cell") {
+                        controller.markCell(2)
+                        expect(controller.gridButtons[2].titleForState(.Normal)).to(equal("X"))
+                    }
+
+                    it("adds an O to the fourth cell") {
+                        controller.markCell(3)
+                        expect(controller.gridButtons[1].titleForState(.Normal)).to(equal("O"))
                     }
                 }
 
                 context("when a cell is marked") {
                     it("does not change the value in the cell") {
+                        let controller = MainViewController()
+                        controller.gridButtons = createButtons()
                         controller.viewDidLoad()
+
                         controller.markCell(0)
                         controller.markCell(0)
 
