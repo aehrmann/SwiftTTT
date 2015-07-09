@@ -6,74 +6,51 @@ class MainViewControllerSpec: QuickSpec {
     override func spec() {
 
         describe("MainViewController") {
+            var controller: MainViewController!
+            var buttons: [UIButton]!
 
             describe("Loading the view") {
-                it("sets both cells to a blank state") {
-                    let controller = MainViewController()
-                    let button = UIButton()
-                    let buttonTwo = UIButton()
-                    controller.cellButton = button
-                    controller.cellButtonTwo = buttonTwo
+                it("sets all grid buttons to blank state") {
+                    controller = MainViewController()
+                    buttons = [UIButton](count: 9, repeatedValue: UIButton())
+                    controller.gridButtons = buttons
 
                     controller.viewDidLoad()
 
-                    expect(controller.cellButton.titleLabel?.text).to(equal("_"))
-                    expect(controller.cellButtonTwo.titleLabel?.text).to(equal("_"))
+                    for button in controller.gridButtons {
+                        expect(button.titleForState(.Normal)).to(equal("_"))
+                    }
                 }
             }
 
-            describe("Updating a button's lable") {
-                var controller: MainViewController!
-                var button: UIButton!
-                var buttonTwo: UIButton!
-
-                context("when the button is first to be pressed") {
-                    beforeEach {
-                        controller = MainViewController()
-                        button = UIButton()
-                        buttonTwo = UIButton()
-
-                        controller.cellButton = button
-                        controller.cellButtonTwo = buttonTwo
-
+            describe("Updating a cell") {
+                beforeEach {
+                    controller = MainViewController()
+                    buttons = [UIButton](count: 9, repeatedValue: UIButton())
+                    controller.gridButtons = buttons
+                }
+                context("when a cell is blank") {
+                    it("alternates between adding an X and adding an O") {
                         controller.viewDidLoad()
-                    }
 
-                    it("changes the text of the first button to X") {
-                        controller.updateButton(0)
+                        controller.markCell(0)
+                        controller.markCell(1)
+                        controller.markCell(2)
 
-                        expect(controller.cellButton.titleLabel?.text).to(equal("X"))
-                    }
-                    it("changes the text of the second button to X") {
-                        controller.updateButton(1)
+                        expect(controller.gridButtons[0].titleForState(.Normal)).to(equal("X"))
+                        expect(controller.gridButtons[1].titleForState(.Normal)).to(equal("O"))
+                        expect(controller.gridButtons[2].titleForState(.Normal)).to(equal("X"))
 
-                        expect(controller.cellButtonTwo.titleLabel?.text).to(equal("X"))
                     }
                 }
 
-                context("when the button is second to be pressed") {
-                    beforeEach {
-                        controller = MainViewController()
-                        button = UIButton()
-                        buttonTwo = UIButton()
-
-                        controller.cellButton = button
-                        controller.cellButtonTwo = buttonTwo
-
+                context("when a cell is marked") {
+                    it("does not change the value in the cell") {
                         controller.viewDidLoad()
-                    }
+                        controller.markCell(0)
+                        controller.markCell(0)
 
-                    it("changes the text of the first button to O") {
-                        controller.updateButton(1)
-                        controller.updateButton(0)
-
-                        expect(controller.cellButton.titleLabel?.text).to(equal("O"))
-                    }
-                    it("changes the text of the second button to O") {
-                        controller.updateButton(0)
-                        controller.updateButton(1)
-
-                        expect(controller.cellButtonTwo.titleLabel?.text).to(equal("O"))
+                        expect(controller.gridButtons[0].titleForState(.Normal)).to(equal("X"))
                     }
                 }
             }
