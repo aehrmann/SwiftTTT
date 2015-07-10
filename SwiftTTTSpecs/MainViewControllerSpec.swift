@@ -39,42 +39,57 @@ class MainViewControllerSpec: QuickSpec {
                 }
             }
 
-            describe("Updating a cell") {
-                context("when a cell is blank") {
-                    let controller = MainViewController()
+            describe("Updating the board") {
+                var controller: MainViewController!
+
+                beforeEach {
+                    controller = MainViewController()
                     controller.gridButtons = createButtons()
                     controller.viewDidLoad()
+                }
 
-                    it("adds an X to the first only") {
-                        controller.updateCell(0)
-                        expect(controller.gridButtons[0].titleForState(.Normal)).to(equal("X"))
+                context("when the cell is not marked") {
+                    context("when an X is placed in a cell") {
+                        beforeEach {
+                            controller.updatePosition(0)
+                        }
+
+                        it("updates the corresponding position on the board") {
+                            expect(controller.board.markAt(0)).to(equal(Mark.X))
+                        }
+
+                        it("changes the cell's button text to X") {
+                            expect(controller.gridButtons[0].titleForState(.Normal)).to(equal("X"))
+                        }
                     }
 
-                    it("adds an O to the second cell") {
-                        controller.updateCell(1)
-                        expect(controller.gridButtons[1].titleForState(.Normal)).to(equal("O"))
-                    }
+                    context("when an O is placed in a cell") {
+                        beforeEach {
+                            controller.updatePosition(0)
+                            controller.updatePosition(1)
+                        }
 
-                    it("adds an X to the third cell") {
-                        controller.updateCell(2)
-                        expect(controller.gridButtons[2].titleForState(.Normal)).to(equal("X"))
-                    }
+                        it("updates the corresponding position on the board") {
+                            expect(controller.board.markAt(1)).to(equal(Mark.O))
+                        }
 
-                    it("adds an O to the fourth cell") {
-                        controller.updateCell(3)
-                        expect(controller.gridButtons[1].titleForState(.Normal)).to(equal("O"))
+                        it("changes the cell's button text to O") {
+                            expect(controller.gridButtons[1].titleForState(.Normal)).to(equal("O"))
+                        }
                     }
                 }
 
-                context("when a cell is marked") {
-                    it("does not change the value in the cell") {
-                        let controller = MainViewController()
-                        controller.gridButtons = createButtons()
-                        controller.viewDidLoad()
+                context("when the cell is already marked") {
+                    beforeEach {
+                        controller.updatePosition(0)
+                        controller.updatePosition(0)
+                    }
 
-                        controller.updateCell(0)
-                        controller.updateCell(0)
+                    it("does not change the corresponding mark on the board") {
+                        expect(controller.board.markAt(0)).to(equal(Mark.X))
+                    }
 
+                    it("does not change the text of the button") {
                         expect(controller.gridButtons[0].titleForState(.Normal)).to(equal("X"))
                     }
                 }

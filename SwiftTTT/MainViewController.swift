@@ -5,7 +5,7 @@ public class MainViewController: UIViewController {
     @IBOutlet public var gridButtons: Array<UIButton>!
     @IBOutlet weak var winnerLabel: UILabel!
 
-    private var xHasMove = true
+    private var nextMark = Mark.X
 
     public var board: Board!
     public var rules: Rules!
@@ -14,34 +14,32 @@ public class MainViewController: UIViewController {
         board = Board()
         rules = Rules()
         for button in gridButtons {
-            setText(button, mark: "")
+            button.setTitle("", forState: .Normal)
         }
         super.viewDidLoad()
     }
 
     @IBAction func buttonPressed(sender: UIButton) {
-        let cellIndex = find(gridButtons, sender)!
-        updateCell(cellIndex)
-    }
-
-    public func updateCell(cellIndex: Int) {
-        let button = gridButtons[cellIndex]
-        if isUnmarked(button) {
-            setText(button, mark: nextMark())
+        if let position = find(gridButtons, sender) {
+            updatePosition(position)
         }
     }
 
-    private func isUnmarked(button: UIButton) -> Bool {
-        return button.titleForState(.Normal)! == ""
+    public func updatePosition(position: Int) {
+        if isBlank(position) {
+            board.placeMark(nextMark, at: position)
+            setTextForPosition(position)
+            nextMark = nextMark == .X ? .O : .X
+        }
     }
 
-    private func nextMark() -> String {
-        let mark = xHasMove ? "X" : "O"
-        xHasMove = !xHasMove
-        return mark
+    private func isBlank(position: Int) -> Bool {
+        return board.markAt(position) == .Blank
     }
 
-    private func setText(button: UIButton, mark: String) {
-        button.setTitle(mark, forState: .Normal)
+    private func setTextForPosition(position: Int) {
+        let button = gridButtons[position]
+        let markText = board.markAt(position).description
+        button.setTitle(markText, forState: .Normal)
     }
 }
