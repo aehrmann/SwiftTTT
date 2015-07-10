@@ -94,6 +94,80 @@ class MainViewControllerSpec: QuickSpec {
                     }
                 }
             }
+
+            describe("Displaying the winner") {
+                context("when X wins") {
+                    func playXWinsMoves(controller: MainViewController) {
+                        controller.updatePosition(0)
+                        controller.updatePosition(8)
+                        controller.updatePosition(3)
+                        controller.updatePosition(7)
+                        controller.updatePosition(6)
+                    }
+
+                    it("displays that X is the winner") {
+                        let controller = MainViewController()
+                        controller.gridButtons = createButtons()
+                        let label = UILabel()
+                        controller.winnerLabel = label
+                        controller.viewDidLoad()
+
+                        playXWinsMoves(controller)
+
+                        expect(controller.winnerLabel.text).to(equal("X is the winner!"))
+                    }
+                }
+
+                context("when O wins") {
+                    func playOWinsMoves(controller: MainViewController) {
+                        controller.updatePosition(0)
+                        controller.updatePosition(2)
+                        controller.updatePosition(1)
+                        controller.updatePosition(5)
+                        controller.updatePosition(4)
+                        controller.updatePosition(8)
+                    }
+
+                    it("displays that O is the winner") {
+                        let controller = MainViewController()
+                        controller.gridButtons = createButtons()
+                        let label = UILabel()
+                        controller.winnerLabel = label
+                        controller.viewDidLoad()
+
+                        playOWinsMoves(controller)
+
+                        expect(controller.winnerLabel.text).to(equal("O is the winner!"))
+                    }
+                }
+
+                context("there is a draw") {
+                    func playDrawMoves(controller: MainViewController) {
+                        controller.updatePosition(0)
+                        controller.updatePosition(2)
+                        controller.updatePosition(1)
+                        controller.updatePosition(3)
+                        controller.updatePosition(5)
+                        controller.updatePosition(4)
+                        controller.updatePosition(6)
+                        controller.updatePosition(8)
+                        controller.updatePosition(7)
+                    }
+
+                    it("displays that there is a draw") {
+                        let controller = MainViewController()
+                        controller.gridButtons = createButtons()
+                        let label = UILabel()
+                        controller.winnerLabel = label
+                        controller.viewDidLoad()
+
+                        playDrawMoves(controller)
+
+                        expect(controller.winnerLabel.text).to(equal("Draw game!"))
+                    }
+                }
+
+            }
         }
     }
 }
