@@ -41,15 +41,22 @@ public class MainViewController: UIViewController {
         if isBlank(position) {
             board.placeMark(nextMark, at: position)
             setTextForPosition(position)
-            if rules.markIsWinner(.X, of: board) {
-                winnerLabel?.text = "X is the winner!"
-            } else if rules.markIsWinner(.O, of: board) {
-                winnerLabel?.text = "O is the winner!"
-            } else if rules.isDraw(board) {
-                winnerLabel?.text = "Draw game!"
-            }
+
+            checkWinOrDraw()
+
             nextMark = nextMark == .X ? .O : .X
         }
+    }
+
+    private func checkWinOrDraw() {
+        if rules.markIsWinner(.X, of: board) {
+            winnerLabel?.text = "X is the winner!"
+        } else if rules.markIsWinner(.O, of: board) {
+            winnerLabel?.text = "O is the winner!"
+        } else if rules.isDraw(board) {
+            winnerLabel?.text = "Draw game!"
+        }
+
     }
 
     private func isBlank(position: Int) -> Bool {
