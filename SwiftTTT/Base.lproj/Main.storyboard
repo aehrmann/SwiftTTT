@@ -120,7 +120,7 @@
                                     <action selector="buttonPressed:" destination="BUR-uo-2Xz" eventType="touchUpInside" id="f1R-wW-W26"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Winner is X!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4P-j1-tId">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h4P-j1-tId">
                                 <rect key="frame" x="18" y="52" width="341" height="53"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -146,6 +146,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="winnerLabel" destination="h4P-j1-tId" id="XIw-uJ-jIc"/>
                         <outletCollection property="gridButtons" destination="vJA-9c-Yi2" collectionClass="NSMutableArray" id="ogA-Uv-s1o"/>
                         <outletCollection property="gridButtons" destination="cip-ky-P71" collectionClass="NSMutableArray" id="h7i-zr-HJK"/>
                         <outletCollection property="gridButtons" destination="TJC-cR-gbn" collectionClass="NSMutableArray" id="JcH-dD-Epx"/>

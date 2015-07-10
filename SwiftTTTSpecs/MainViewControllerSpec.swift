@@ -17,14 +17,25 @@ class MainViewControllerSpec: QuickSpec {
             var controller: MainViewController!
 
             describe("Loading the view") {
-                it("sets all grid buttons to blank state") {
+
+                beforeEach {
                     controller = MainViewController()
                     controller.gridButtons = createButtons()
                     controller.viewDidLoad()
+                }
 
+                it("sets all grid buttons to blank state") {
                     for button in controller.gridButtons {
                         expect(button.titleForState(.Normal)).to(equal(""))
                     }
+                }
+
+                it("creates a board") {
+                    expect(controller.board).notTo(beNil())
+                }
+
+                it("creates a the rules") {
+                    expect(controller.rules).notTo(beNil())
                 }
             }
 

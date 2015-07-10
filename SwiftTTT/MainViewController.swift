@@ -3,14 +3,20 @@ import UIKit
 public class MainViewController: UIViewController {
 
     @IBOutlet public var gridButtons: Array<UIButton>!
+    @IBOutlet weak var winnerLabel: UILabel!
 
     private var xHasMove = true
 
+    public var board: Board!
+    public var rules: Rules!
+
     override public func viewDidLoad() {
-        super.viewDidLoad()
+        board = Board()
+        rules = Rules()
         for button in gridButtons {
             setText(button, mark: "")
         }
+        super.viewDidLoad()
     }
 
     @IBAction func buttonPressed(sender: UIButton) {
