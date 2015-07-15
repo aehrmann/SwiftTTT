@@ -5,7 +5,7 @@ public class MainViewController: UIViewController {
     @IBOutlet public var gridButtons: Array<UIButton>!
     @IBOutlet public weak var winnerLabel: UILabel!
 
-    private var nextMark = Mark.X
+    public var nextMark = Mark.X
 
     public var board: MutableBoard!
     public var rules: Rules!
@@ -19,6 +19,18 @@ public class MainViewController: UIViewController {
         super.viewDidLoad()
     }
 
+    public func userTurn(position: Int) {
+        board.placeMark(.X, at: position)
+    }
+    
+    public func computerTurn() {
+        for i in 0..<board.marks.count {
+            if board.markAt(i) == .Blank {
+                board.placeMark(.O, at: i)
+            }
+        }
+    }
+    
     public func xIsWinner() -> Bool {
         return rules.playerWins(board)
     }

@@ -37,8 +37,38 @@ class MainViewControllerSpec: QuickSpec {
                 it("creates a the rules") {
                     expect(controller.rules).notTo(beNil())
                 }
+                
+                it("sets the user to be the active player") {
+                    expect(controller.nextMark).to(equal(Mark.X))
+                }
             }
 
+            describe("Taking turns") {
+                var controller: MainViewController!
+                
+                beforeEach {
+                    controller = MainViewController()
+                    controller.gridButtons = createButtons()
+                    controller.viewDidLoad()
+                }
+                
+                context("when it is the user's turn") {
+                    it("updates the given position with an X") {
+                        controller.userTurn(0)
+                        
+                        expect(controller.board.markAt(0)).to(equal(Mark.X))
+                    }
+                }
+                context("when it is the opponent's turn") {
+                    it("adds an O to the first open position") {
+                        controller.userTurn(0)
+                        controller.computerTurn()
+                        
+                        expect(controller.board.markAt(1)).to(equal(Mark.O))
+                    }
+                }
+            }
+            
             describe("Updating the board") {
                 var controller: MainViewController!
 
