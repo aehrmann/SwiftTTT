@@ -65,6 +65,24 @@ public class MutableBoardSpec: QuickSpec {
                     }
                 }
             }
+            
+            describe("Checking if a position is blank") {
+                context("when the position is blank") {
+                    it("returns true") {
+                        let emptyBoard = MutableBoard()
+                        expect(emptyBoard.isBlank(0)).to(beTrue())
+                    }
+                }
+                
+                context("when the position is not blank") {
+                    it("returns true") {
+                        let board = MutableBoard()
+                        board.placeMark(.O, at: 0)
+                        expect(board.isBlank(0)).to(beFalse())
+                    }
+                }
+
+            }
         }
     }
 }

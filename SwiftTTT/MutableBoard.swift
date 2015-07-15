@@ -20,6 +20,10 @@ public class MutableBoard {
         }
         return true
     }
+    
+    public func isBlank(position: Int) -> Bool {
+        return markAt(position) == .Blank
+    }
 
     public func isFull() -> Bool {
         return all { $0 != .Blank }
