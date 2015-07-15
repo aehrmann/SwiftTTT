@@ -1,9 +1,15 @@
 public class Rules {
-    let rowWinningPositions = [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
-    let columnWinningPositions = [[0, 3, 6], [1, 4, 7], [2, 5, 8]]
-    let diagonalWinningPositions = [[0, 4, 8], [2, 4, 6]]
+    private let rowWinningPositions = [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
+    private let columnWinningPositions = [[0, 3, 6], [1, 4, 7], [2, 5, 8]]
+    private let diagonalWinningPositions = [[0, 4, 8], [2, 4, 6]]
 
-    public init() { }
+    public let player: Mark!
+    public let opponent: Mark!
+    
+    public init(player: Mark = Mark.X, opponent: Mark = Mark.O) {
+        self.player = player
+        self.opponent = opponent
+    }
 
     public func markIsWinner(mark: Mark, of board: MutableBoard) -> Bool {
         return markWinsInAnySetOfPositions(mark, of: board)

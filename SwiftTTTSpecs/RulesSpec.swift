@@ -6,6 +6,14 @@ public class RulesSpec: QuickSpec {
     override public func spec() {
         var rules: Rules!
 
+        describe("Creating the rules") {
+            it("stores player and opponent marks") {
+                let rules = Rules()
+                expect(rules.player).to(equal(Mark.X))
+                expect(rules.opponent).to(equal(Mark.O))
+            }
+        }
+        
         describe("Checking for a win") {
 
             beforeEach {
