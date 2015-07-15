@@ -11,7 +11,15 @@ public class Rules {
         self.opponent = opponent
     }
 
-    public func markIsWinner(mark: Mark, of board: MutableBoard) -> Bool {
+    public func playerWins(board: MutableBoard) -> Bool {
+        return markIsWinner(player, of: board)
+    }
+    
+    public func opponentWins(board: MutableBoard) -> Bool {
+        return markIsWinner(opponent, of: board)
+    }
+    
+    private func markIsWinner(mark: Mark, of board: MutableBoard) -> Bool {
         return markWinsInAnySetOfPositions(mark, of: board)
     }
 

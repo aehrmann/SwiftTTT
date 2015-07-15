@@ -25,12 +25,12 @@ public class RulesSpec: QuickSpec {
                 it("returns true when X wins a row") {
                     let board = mutableBoardWithMarksAtPositions([.X: [0, 1, 2]])
 
-                    expect(rules.markIsWinner(.X, of: board)).to(beTrue())
+                    expect(rules.playerWins(board)).to(beTrue())
                 }
 
                 it("returns true when O wins a row") {
                     let board = mutableBoardWithMarksAtPositions([.O: [6, 7, 8]])
-                    expect(rules.markIsWinner(.O, of: board)).to(beTrue())
+                    expect(rules.opponentWins(board)).to(beTrue())
                 }
             }
 
@@ -38,12 +38,12 @@ public class RulesSpec: QuickSpec {
 
                 it("returns true when X wins in a column") {
                     let board = mutableBoardWithMarksAtPositions([.X: [0, 3, 6]])
-                    expect(rules.markIsWinner(.X, of: board)).to(beTrue())
+                    expect(rules.playerWins(board)).to(beTrue())
                 }
 
                 it("returns true when O wins in a column") {
                     let board = mutableBoardWithMarksAtPositions([.O: [2, 5, 8]])
-                    expect(rules.markIsWinner(.O, of: board)).to(beTrue())
+                    expect(rules.opponentWins(board)).to(beTrue())
                 }
             }
 
@@ -51,12 +51,12 @@ public class RulesSpec: QuickSpec {
 
                 it("returns true when X wins on a diagonal") {
                     let board = mutableBoardWithMarksAtPositions([.X: [0, 4, 8]])
-                    expect(rules.markIsWinner(.X, of: board)).to(beTrue())
+                    expect(rules.playerWins(board)).to(beTrue())
                 }
 
                 it("returns true when O wins on a diagonal") {
                     let board = mutableBoardWithMarksAtPositions([.O: [2, 4, 6]])
-                    expect(rules.markIsWinner(.O, of: board)).to(beTrue())
+                    expect(rules.opponentWins(board)).to(beTrue())
                 }
 
             }
@@ -64,12 +64,12 @@ public class RulesSpec: QuickSpec {
                 
                 it("returns false when X does not win") {
                     let board = MutableBoard()
-                    expect(rules.markIsWinner(.X, of: board)).to(beFalse())
+                    expect(rules.playerWins(board)).to(beFalse())
                 }
 
                 it("returns false when O does not win") {
                     let board = MutableBoard()
-                    expect(rules.markIsWinner(.O, of: board)).to(beFalse())
+                    expect(rules.opponentWins(board)).to(beFalse())
                 }
             }
         }
