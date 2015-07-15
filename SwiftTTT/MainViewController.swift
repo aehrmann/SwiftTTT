@@ -21,16 +21,16 @@ public class MainViewController: UIViewController {
     
     @IBAction public func cellTapped(sender: UIButton) {
         if nextMark == Mark.X {
-            let position = find(gridButtons, sender)
-            if board.markAt(position!) == Mark.Blank {
-                userTurn(position!)
+            let position = find(gridButtons, sender)!
+            if board.isBlank(position) {
+                userTurn(position)
                 computerTurn()
             }
         }
     }
 
     public func userTurn(position: Int) {
-        if isBlank(position) {
+        if board.isBlank(position) {
             board.placeMark(.X, at: position)
             gridButtons[position].setTitle("X", forState: .Normal)
             nextMark = Mark.O
@@ -66,10 +66,5 @@ public class MainViewController: UIViewController {
         } else if rules.isDraw(board) {
             winnerLabel?.text = "Draw game!"
         }
-
-    }
-
-    private func isBlank(position: Int) -> Bool {
-        return board.markAt(position) == .Blank
     }
 }

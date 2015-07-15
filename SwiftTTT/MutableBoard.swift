@@ -29,6 +29,10 @@ public class MutableBoard {
         return all { $0 == .Blank }
     }
     
+    public func isBlank(position: Int) -> Bool {
+        return marks[position] == .Blank
+    }
+    
     private func all(predicate: Mark -> Bool) -> Bool {
         for mark in marks {
             if !predicate(mark) {
