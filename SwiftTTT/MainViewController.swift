@@ -21,6 +21,7 @@ public class MainViewController: UIViewController {
 
     public func userTurn(position: Int) {
         board.placeMark(.X, at: position)
+        nextMark = Mark.O
     }
     
     public func computerTurn() {
@@ -29,6 +30,7 @@ public class MainViewController: UIViewController {
                 board.placeMark(.O, at: i)
             }
         }
+        nextMark = Mark.X
     }
     
     public func xIsWinner() -> Bool {

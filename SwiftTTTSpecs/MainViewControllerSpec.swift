@@ -58,7 +58,14 @@ class MainViewControllerSpec: QuickSpec {
                         
                         expect(controller.board.markAt(0)).to(equal(Mark.X))
                     }
+                    
+                    it("changes the active player to the computer") {
+                        controller.userTurn(0)
+                        
+                        expect(controller.nextMark).to(equal(Mark.O))
+                    }
                 }
+                
                 context("when it is the opponent's turn") {
                     it("adds an O to the first open position") {
                         controller.userTurn(0)
@@ -66,6 +73,14 @@ class MainViewControllerSpec: QuickSpec {
                         
                         expect(controller.board.markAt(1)).to(equal(Mark.O))
                     }
+                    
+                    it("changes the active player to the user") {
+                        controller.userTurn(0)
+                        controller.computerTurn()
+                        
+                        expect(controller.nextMark).to(equal(Mark.X))
+                    }
+
                 }
             }
             
