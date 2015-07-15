@@ -53,134 +53,87 @@ class MainViewControllerSpec: QuickSpec {
                 }
                 
                 context("when it is the user's turn") {
-                    it("updates the given position with an X") {
-                        controller.userTurn(0)
+                    context("when the cell is empty") {
+                        beforeEach {
+                            controller.userTurn(0)
+                        }
                         
-                        expect(controller.board.markAt(0)).to(equal(Mark.X))
+                        it("updates the given position with an X") {
+                            expect(controller.board.markAt(0)).to(equal(Mark.X))
+                        }
+                        
+                        it("changes the cell's button text to X") {
+                            expect(controller.buttonTextIsX(at: 0)).to(beTrue())
+                        }
+                        
+                        it("changes the active player to the computer") {
+                            expect(controller.nextMark).to(equal(Mark.O))
+                        }
                     }
                     
-                    it("changes the active player to the computer") {
-                        controller.userTurn(0)
+                    context("when the cell is not empty") {
+                        beforeEach {
+                            controller.computerTurn()
+                            controller.userTurn(0)
+                        }
                         
-                        expect(controller.nextMark).to(equal(Mark.O))
+                        it("does not change the corresponding mark on the board") {
+                            expect(controller.board.markAt(0)).to(equal(Mark.O))
+                        }
+                        
+                        it("does not change the text of the button") {
+                            expect(controller.buttonTextIsO(at: 0)).to(beTrue())
+                        }
                     }
                 }
                 
                 context("when it is the opponent's turn") {
-                    it("adds an O to the first open position") {
+                    beforeEach {
                         controller.userTurn(0)
                         controller.computerTurn()
-                        
+                    }
+                    
+                    it("adds an O to the first open position") {
                         expect(controller.board.markAt(1)).to(equal(Mark.O))
                     }
                     
+                    it("changes the cell's button text to O") {
+                        expect(controller.buttonTextIsO(at: 1)).to(beTrue())
+                    }
+                    
                     it("changes the active player to the user") {
-                        controller.userTurn(0)
-                        controller.computerTurn()
-                        
                         expect(controller.nextMark).to(equal(Mark.X))
                     }
-
                 }
             }
             
-            describe("Updating the board") {
+            describe("Displaying the winner") {
                 var controller: MainViewController!
-
+                var label: UILabel!
+                
                 beforeEach {
                     controller = MainViewController()
                     controller.gridButtons = createButtons()
+                    label = UILabel()
+                    controller.winnerLabel = label
                     controller.viewDidLoad()
                 }
 
-                context("when the cell is not marked") {
-                    context("when an X is placed in a cell") {
-                        beforeEach {
-                            controller.updatePosition(0)
-                        }
-
-                        it("updates the corresponding position on the board") {
-                            expect(controller.board.markAt(0)).to(equal(Mark.X))
-                        }
-
-                        it("changes the cell's button text to X") {
-                            expect(controller.buttonTextIsX(at: 0)).to(beTrue())
-                        }
-                    }
-
-                    context("when an O is placed in a cell") {
-                        beforeEach {
-                            controller.updatePosition(0)
-                            controller.updatePosition(1)
-                        }
-
-                        it("updates the corresponding position on the board") {
-                            expect(controller.board.markAt(1)).to(equal(Mark.O))
-                        }
-
-                        it("changes the cell's button text to O") {
-                            expect(controller.buttonTextIsO(at: 1)).to(beTrue())
-                        }
-                    }
-                }
-
-                context("when the cell is already marked") {
-                    beforeEach {
-                        controller.updatePosition(0)
-                        controller.updatePosition(0)
-                    }
-
-                    it("does not change the corresponding mark on the board") {
-                        expect(controller.board.markAt(0)).to(equal(Mark.X))
-                    }
-
-                    it("does not change the text of the button") {
-                        expect(controller.buttonTextIsX(at: 0)).to(beTrue())
-                    }
-                }
-            }
-
-            describe("Displaying the winner") {
                 context("when X wins") {
-                    func playXWinsMoves(controller: MainViewController) {
-                        controller.updatePosition(0)
-                        controller.updatePosition(8)
-                        controller.updatePosition(3)
-                        controller.updatePosition(7)
-                        controller.updatePosition(6)
-                    }
-
                     it("displays that X is the winner") {
-                        let controller = MainViewController()
-                        controller.gridButtons = createButtons()
-                        let label = UILabel()
-                        controller.winnerLabel = label
-                        controller.viewDidLoad()
-
-                        playXWinsMoves(controller)
+                        controller.userTurn(0)
+                        controller.userTurn(1)
+                        controller.userTurn(2)
 
                         expect(controller.winnerLabel.text).to(equal("X is the winner!"))
                     }
                 }
 
                 context("when O wins") {
-                    func playOWinsMoves(controller: MainViewController) {
-                        controller.updatePosition(0)
-                        controller.updatePosition(2)
-                        controller.updatePosition(1)
-                        controller.updatePosition(5)
-                        controller.updatePosition(4)
-                        controller.updatePosition(8)
-                    }
-
                     it("displays that O is the winner") {
-                        let controller = MainViewController()
-                        controller.gridButtons = createButtons()
-                        let label = UILabel()
-                        controller.winnerLabel = label
-                        controller.viewDidLoad()
-
-                        playOWinsMoves(controller)
+                        controller.computerTurn()
+                        controller.computerTurn()
+                        controller.computerTurn()
 
                         expect(controller.winnerLabel.text).to(equal("O is the winner!"))
                     }
@@ -188,30 +141,23 @@ class MainViewControllerSpec: QuickSpec {
 
                 context("there is a draw") {
                     func playDrawMoves(controller: MainViewController) {
-                        controller.updatePosition(0)
-                        controller.updatePosition(2)
-                        controller.updatePosition(1)
-                        controller.updatePosition(3)
-                        controller.updatePosition(5)
-                        controller.updatePosition(4)
-                        controller.updatePosition(6)
-                        controller.updatePosition(8)
-                        controller.updatePosition(7)
+                        controller.userTurn(1)
+                        controller.userTurn(3)
+                        controller.userTurn(4)
+                        controller.userTurn(8)
+                        controller.computerTurn()
+                        controller.computerTurn()
+                        controller.computerTurn()
+                        controller.computerTurn()
+                        controller.computerTurn()
                     }
 
                     it("displays that there is a draw") {
-                        let controller = MainViewController()
-                        controller.gridButtons = createButtons()
-                        let label = UILabel()
-                        controller.winnerLabel = label
-                        controller.viewDidLoad()
-
                         playDrawMoves(controller)
 
                         expect(controller.winnerLabel.text).to(equal("Draw game!"))
                     }
                 }
-
             }
         }
     }

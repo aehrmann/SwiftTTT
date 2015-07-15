@@ -20,16 +20,22 @@ public class MainViewController: UIViewController {
     }
 
     public func userTurn(position: Int) {
-        board.placeMark(.X, at: position)
-        nextMark = Mark.O
+        if isBlank(position) {
+            board.placeMark(.X, at: position)
+            gridButtons[position].setTitle("X", forState: .Normal)
+            nextMark = Mark.O
+            checkWinOrDraw()
+        }
     }
     
     public func computerTurn() {
         for i in 0..<board.marks.count {
             if board.markAt(i) == .Blank {
                 board.placeMark(.O, at: i)
+                gridButtons[i].setTitle("O", forState: .Normal)
             }
         }
+        checkWinOrDraw()
         nextMark = Mark.X
     }
     
@@ -53,23 +59,6 @@ public class MainViewController: UIViewController {
         return rules.isDraw(board)
     }
 
-    @IBAction func buttonPressed(sender: UIButton) {
-        if let position = find(gridButtons, sender) {
-            updatePosition(position)
-        }
-    }
-
-    public func updatePosition(position: Int) {
-        if isBlank(position) {
-            board.placeMark(nextMark, at: position)
-            setTextForPosition(position)
-
-            checkWinOrDraw()
-
-            nextMark = nextMark == .X ? .O : .X
-        }
-    }
-
     private func checkWinOrDraw() {
         if rules.playerWins(board) {
             winnerLabel?.text = "X is the winner!"
@@ -83,11 +72,5 @@ public class MainViewController: UIViewController {
 
     private func isBlank(position: Int) -> Bool {
         return board.markAt(position) == .Blank
-    }
-
-    private func setTextForPosition(position: Int) {
-        let button = gridButtons[position]
-        let markText = board.markAt(position).description
-        button.setTitle(markText, forState: .Normal)
     }
 }
