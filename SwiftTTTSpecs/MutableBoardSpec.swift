@@ -30,7 +30,7 @@ public class MutableBoardSpec: QuickSpec {
 
                 context("when the board is full") {
                     it("returns true") {
-                        let allPositions = (0..<9).map { $0 }
+                        let allPositions = Array(0..<9)
                         let board = mutableBoardWithMarksAtPositions([.X: allPositions])
 
                         expect(board.isFull()).to(beTrue())

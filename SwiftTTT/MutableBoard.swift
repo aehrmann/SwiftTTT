@@ -22,17 +22,16 @@ public class MutableBoard {
     }
 
     public func isFull() -> Bool {
-        for mark in marks {
-            if mark == .Blank {
-                return false
-            }
-        }
-        return true
+        return all { $0 != .Blank }
     }
 
     public func isEmpty() -> Bool {
+        return all { $0 == .Blank }
+    }
+    
+    private func all(predicate: Mark -> Bool) -> Bool {
         for mark in marks {
-            if mark != .Blank {
+            if !predicate(mark) {
                 return false
             }
         }
