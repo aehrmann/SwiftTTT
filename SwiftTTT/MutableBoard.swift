@@ -1,5 +1,5 @@
 public class MutableBoard {
-    var marks = [Mark](count: 9, repeatedValue: Mark.Blank)
+    public var marks = [Mark](count: 9, repeatedValue: Mark.Blank)
     let rules = Rules()
 
     public init() { }

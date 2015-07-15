@@ -10,13 +10,23 @@ public class MainViewController: UIViewController {
     public var board: MutableBoard!
     public var rules: Rules!
 
-    override public func viewDidLoad() {
+        override public func viewDidLoad() {
         board = MutableBoard()
         rules = Rules()
         for button in gridButtons {
             button.setTitle("", forState: .Normal)
         }
         super.viewDidLoad()
+    }
+    
+    @IBAction public func cellTapped(sender: UIButton) {
+        if nextMark == Mark.X {
+            let position = find(gridButtons, sender)
+            if board.markAt(position!) == Mark.Blank {
+                userTurn(position!)
+                computerTurn()
+            }
+        }
     }
 
     public func userTurn(position: Int) {
@@ -33,6 +43,7 @@ public class MainViewController: UIViewController {
             if board.markAt(i) == .Blank {
                 board.placeMark(.O, at: i)
                 gridButtons[i].setTitle("O", forState: .Normal)
+                break
             }
         }
         checkWinOrDraw()
@@ -46,19 +57,7 @@ public class MainViewController: UIViewController {
     public func buttonTextIsO(at position: Int) -> Bool {
         return gridButtons[position].titleForState(.Normal) == "O"
     }
-        
-    public func xIsWinner() -> Bool {
-        return rules.playerWins(board)
-    }
-
-    public func oIsWinner() -> Bool {
-        return rules.playerWins(board)
-    }
-
-    public func gameIsDraw() -> Bool {
-        return rules.isDraw(board)
-    }
-
+    
     private func checkWinOrDraw() {
         if rules.playerWins(board) {
             winnerLabel?.text = "X is the winner!"

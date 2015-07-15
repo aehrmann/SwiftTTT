@@ -97,6 +97,13 @@ class MainViewControllerSpec: QuickSpec {
                         expect(controller.board.markAt(1)).to(equal(Mark.O))
                     }
                     
+                    it("only adds a mark to one position") {
+                        for i in 2..<controller.board.marks.count {
+                            expect(controller.board.markAt(i)).to(equal(Mark.Blank))
+                        }
+                        expect(controller.board.markAt(1)).to(equal(Mark.O))
+                    }
+                    
                     it("changes the cell's button text to O") {
                         expect(controller.buttonTextIsO(at: 1)).to(beTrue())
                     }
@@ -156,6 +163,57 @@ class MainViewControllerSpec: QuickSpec {
                         playDrawMoves(controller)
 
                         expect(controller.winnerLabel.text).to(equal("Draw game!"))
+                    }
+                }
+            }
+            describe("Tapping a button") {
+                var controller: MainViewController!
+                
+                beforeEach {
+                    controller = MainViewController()
+                    controller.gridButtons = createButtons()
+                    controller.viewDidLoad()
+
+                }
+                context("when it is the user's turn") {
+                    context("when the cell corresponding the button is blank") {
+                        it("updates the position corresponding to the tapped button") {
+                            controller.cellTapped(controller.gridButtons[2])
+                            
+                            expect(controller.board.markAt(2)).to(equal(Mark.X))
+                        }
+                        
+                        it("tells the computer to play its next turn") {
+                            controller.cellTapped(controller.gridButtons[2])
+                            
+                            expect(controller.board.markAt(0)).to(equal(Mark.O))
+                        }
+                    }
+                    context("when the cell is already marked") {
+                        it("does not tell the computer to make a move") {
+                            controller.cellTapped(controller.gridButtons[0])
+                            controller.cellTapped(controller.gridButtons[0])
+                            
+                            expect(controller.board.markAt(2)).to(equal(Mark.Blank))
+                        }
+                        it("does not change the contents of the cell") {
+                            let controller = MainViewController()
+                            controller.gridButtons = createButtons()
+                            controller.viewDidLoad()
+                            
+                            controller.cellTapped(controller.gridButtons[0])
+                            controller.cellTapped(controller.gridButtons[1])
+                            
+                            expect(controller.board.markAt(1)).to(equal(Mark.O))
+                        }
+                    }
+                }
+                context("when it is the computer's turn") {
+                    it("ignores any taps from the user") {
+                        controller.userTurn(0)
+                        controller.cellTapped(controller.gridButtons[2])
+                        
+                        expect(controller.board.markAt(2)).to(equal(Mark.Blank))
                     }
                 }
             }
