@@ -1,4 +1,4 @@
-public class Board {
+public class MutableBoard {
     var marks = [Mark](count: 9, repeatedValue: Mark.Blank)
     let rules = Rules()
 

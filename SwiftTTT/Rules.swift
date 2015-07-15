@@ -5,19 +5,19 @@ public class Rules {
 
     public init() { }
 
-    public func markIsWinner(mark: Mark, of board: Board) -> Bool {
+    public func markIsWinner(mark: Mark, of board: MutableBoard) -> Bool {
         return markWinsInAnySetOfPositions(mark, of: board)
     }
 
-    public func isDraw(board: Board) -> Bool {
+    public func isDraw(board: MutableBoard) -> Bool {
         return board.isFull() && !( markIsWinner(.O, of: board) || markIsWinner(.X, of: board) )
     }
 
-    private func markWinsInAnySetOfPositions(mark: Mark, of board: Board) -> Bool {
+    private func markWinsInAnySetOfPositions(mark: Mark, of board: MutableBoard) -> Bool {
         return markWinsRow(mark, of: board) || markWinsColumn(mark, of: board) || markWinsDiagonal(mark, of: board)
     }
 
-    private func markWinsRow(mark: Mark, of board: Board) -> Bool {
+    private func markWinsRow(mark: Mark, of board: MutableBoard) -> Bool {
         for positions in rowWinningPositions {
             if (board.hasMark(mark, atPositions: positions)) {
                 return true
@@ -26,7 +26,7 @@ public class Rules {
         return false
     }
 
-    private func markWinsColumn(mark: Mark, of board: Board) -> Bool {
+    private func markWinsColumn(mark: Mark, of board: MutableBoard) -> Bool {
         for positions in columnWinningPositions {
             if (board.hasMark(mark, atPositions: positions)) {
                 return true
@@ -35,7 +35,7 @@ public class Rules {
         return false
     }
 
-    private func markWinsDiagonal(mark: Mark, of board: Board) -> Bool {
+    private func markWinsDiagonal(mark: Mark, of board: MutableBoard) -> Bool {
         for positions in diagonalWinningPositions {
             if (board.hasMark(mark, atPositions: positions)) {
                 return true

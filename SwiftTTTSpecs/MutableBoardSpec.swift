@@ -2,15 +2,15 @@ import Quick
 import Nimble
 import SwiftTTT
 
-public class BoardSpec: QuickSpec {
+public class MutableBoardSpec: QuickSpec {
     override public func spec() {
-        describe("Board") {
+        describe("MutableBoard") {
 
             describe("Placing a mark on the board") {
-                var board: Board!
+                var board: MutableBoard!
 
                 beforeEach {
-                    board = Board()
+                    board = MutableBoard()
                 }
 
                 it("places an X at the given position") {
@@ -31,14 +31,14 @@ public class BoardSpec: QuickSpec {
                 context("when the board is full") {
                     it("returns true") {
                         let allPositions = (0..<9).map { $0 }
-                        let board = boardWithMarksAtPositions([.X: allPositions])
+                        let board = mutableBoardWithMarksAtPositions([.X: allPositions])
 
                         expect(board.isFull()).to(beTrue())
                     }
                 }
                 context("when the board is not full") {
                     it("returns false") {
-                        let board = Board()
+                        let board = MutableBoard()
 
                         expect(board.isFull()).to(beFalse())
                     }
@@ -46,10 +46,10 @@ public class BoardSpec: QuickSpec {
             }
 
             describe("Checking if the board is empty") {
-                var board: Board!
+                var board: MutableBoard!
 
                 beforeEach {
-                    board = Board()
+                    board = MutableBoard()
                 }
 
                 context("when the board is initially created") {
