@@ -33,6 +33,14 @@ public class MainViewController: UIViewController {
         nextMark = Mark.X
     }
     
+    public func buttonTextIsX(at position: Int) -> Bool {
+        return gridButtons[position].titleForState(.Normal) == "X"
+    }
+    
+    public func buttonTextIsO(at position: Int) -> Bool {
+        return gridButtons[position].titleForState(.Normal) == "O"
+    }
+        
     public func xIsWinner() -> Bool {
         return rules.playerWins(board)
     }

@@ -104,7 +104,7 @@ class MainViewControllerSpec: QuickSpec {
                         }
 
                         it("changes the cell's button text to X") {
-                            expect(controller.gridButtons[0].titleForState(.Normal)).to(equal("X"))
+                            expect(controller.buttonTextIsX(at: 0)).to(beTrue())
                         }
                     }
 
@@ -119,7 +119,7 @@ class MainViewControllerSpec: QuickSpec {
                         }
 
                         it("changes the cell's button text to O") {
-                            expect(controller.gridButtons[1].titleForState(.Normal)).to(equal("O"))
+                            expect(controller.buttonTextIsO(at: 1)).to(beTrue())
                         }
                     }
                 }
@@ -135,7 +135,7 @@ class MainViewControllerSpec: QuickSpec {
                     }
 
                     it("does not change the text of the button") {
-                        expect(controller.gridButtons[0].titleForState(.Normal)).to(equal("X"))
+                        expect(controller.buttonTextIsX(at: 0)).to(beTrue())
                     }
                 }
             }
