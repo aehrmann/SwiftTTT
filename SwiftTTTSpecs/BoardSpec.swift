@@ -19,6 +19,7 @@ public class BoardSpec: QuickSpec {
             }
             
             describe("Retrieving attributes of the board") {
+                
                 describe("whether a spot has been marked") {
                     context("when the spot has been marked") {
                         it("returns true") {

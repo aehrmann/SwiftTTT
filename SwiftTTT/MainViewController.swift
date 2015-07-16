@@ -8,11 +8,11 @@ public class MainViewController: UIViewController {
     private var nextMark = Mark.X
 
     public var board: MutableBoard!
-    public var rules: Rules!
+    public var rules: BasicRules!
 
     override public func viewDidLoad() {
         board = MutableBoard()
-        rules = Rules()
+        rules = BasicRules()
         for button in gridButtons {
             button.setTitle("", forState: .Normal)
         }

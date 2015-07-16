@@ -2,14 +2,14 @@ import Quick
 import Nimble
 import SwiftTTT
 
-public class RulesSpec: QuickSpec {
+public class BasicRulesSpec: QuickSpec {
     override public func spec() {
-        var rules: Rules!
+        var rules: BasicRules!
 
         describe("Checking for a win") {
 
             beforeEach {
-                rules = Rules()
+                rules = BasicRules()
             }
 
             context("when a mark wins in a row") {
