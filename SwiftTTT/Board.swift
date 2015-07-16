@@ -24,5 +24,8 @@ public struct Board {
         return self.marks[spot] != Mark.Blank
     }
     
+    public func markAt(spot: Int) -> Mark {
+        return self.marks[spot]
+    }
 
 }
