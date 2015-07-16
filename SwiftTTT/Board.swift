@@ -35,19 +35,32 @@ public struct Board {
     }
     
     public func rows() -> [[Mark]] {
-        var allRows = Array<[Mark]>()
-        
-        var row = [Mark]()
-        for i in 0..<9 {
-            row.append(markAt(i))
-            if i % 3 == 2 {
-                allRows.append(row)
-                row = [Mark]()
-            }
-        }
-        return allRows
-
+        return markSets(byIndices: { $0 / 3 })
     }
+    
+    public func columns() -> [[Mark]] {
+        return markSets(byIndices: { $0 % 3 })
+    }
+    
+    public func diagonals() -> [[Mark]] {
+        var sets = Array(count: 2, repeatedValue: Array<Mark>())
 
+        sets[0] = [markAt(0), markAt(4), markAt(8)]
+        sets[1] = [markAt(2), markAt(4), markAt(6)]
+        
+        return sets
+    }
+    
+    
+    
+    public func markSets(byIndices indexer: Int -> Int) -> [[Mark]] {
+        var sets = Array(count: 3, repeatedValue: Array<Mark>())
+        
+        for i in 0..<9 {
+            sets[indexer(i)].append(markAt(i))
+        }
+    
+        return sets
+    }
 }
 

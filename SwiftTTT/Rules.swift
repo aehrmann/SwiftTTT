@@ -11,23 +11,28 @@ public struct Rules {
     public func opponentWins(board: Board) -> Bool {
         return isWinningMark(mark: opponent, on: board)
     }
+ 
+    public func isDraw(board: Board) -> Bool {
+        var full = true
+        for i in 0..<9 {
+            full = full && board.isMarked(at: i)
+        }
+        return full && !(playerWins(board) || opponentWins(board))
+    }
     
     public func isWinningMark(mark aMark: Mark, on board: Board) -> Bool {
-        for row in self.rows(board) {
-            if rowWinsFor(mark: aMark, row: row) {
-                return true
-            }
-        }
-        return false
-    }
-
-    private func rows(board: Board) -> [[Mark]] {
-        return board.rows()
+        return hasWinningSetFor(board.rows(), mark: aMark) || hasWinningSetFor(board.columns(), mark: aMark) || hasWinningSetFor(board.diagonals(), mark: aMark)
     }
     
-    private func rowWinsFor(mark aMark: Mark, row: [Mark]) -> Bool {
-        return row.reduce(true) { result, mark in
-            result && aMark == mark
+    private func setWinsFor(set: [Mark], mark: Mark) -> Bool {
+        return set.reduce(true) { result, nextMark in
+            result && nextMark == mark
+        }
+    }
+    
+    private func hasWinningSetFor(sets: [[Mark]], mark: Mark) -> Bool {
+        return sets.reduce(false) { result, set in
+            result || setWinsFor(set, mark: mark)
         }
     }
 }

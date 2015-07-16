@@ -35,6 +35,10 @@ func markForCharacter(char: String) -> Mark {
 println(markForCharacter("X"))
 
 //split(.characters) { $0 == "" }
+let expectedRows: [[Mark]] = [[.X, .O, .X],
+    [.X, .X, .O],
+    [.O, .O, .X]]
+expectedRows[0][1] 
 
 
 

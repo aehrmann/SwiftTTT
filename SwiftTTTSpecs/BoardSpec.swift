@@ -6,6 +6,7 @@ public class BoardSpec: QuickSpec {
     override public func spec() {
         describe("Board") {
             let emptyBoard = Board.init()
+            let testBoard = Board.init(state: "XOX|XXO|OOX")
             
             describe("Creating a board") {
                 it("can be initialized as empty") {
@@ -51,8 +52,7 @@ public class BoardSpec: QuickSpec {
                 
                 describe("retrieving the rows") {
                     it("returns the rows of the board") {
-                        let board = Board.init(state: "XOX|XXO|OOX")
-                        let actualRows = board.rows()
+                        let actualRows = testBoard.rows()
                         let expectedRows: [[Mark]] = [[.X, .O, .X],
                                                       [.X, .X, .O],
                                                       [.O, .O, .X]]
@@ -61,6 +61,31 @@ public class BoardSpec: QuickSpec {
                         }
                     }
                 }
+                
+                describe("retrieving the columns") {
+                    it("returns the columns of the board") {
+                        let actualColumns = testBoard.columns()
+                        let expectedColumns: [[Mark]] = [[.X, .X, .O],
+                                                         [.O, .X, .O],
+                                                         [.X, .O, .X]]
+                        for i in 0..<expectedColumns.count {
+                            expect(actualColumns[i]).to(equal(expectedColumns[i]))
+                        }
+                    }
+                }
+                
+                describe("retrieving the diagonals") {
+                    it("returns the diagonals of the board") {
+                        let actualDiagonals = testBoard.diagonals()
+                        let expectedDiagonals: [[Mark]] = [[.X, .X, .X],
+                                                           [.X, .X, .O]]
+                        for i in 0..<expectedDiagonals.count {
+                            expect(actualDiagonals[i]).to(equal(expectedDiagonals[i]))
+                        }
+
+                    }
+                }
+
             }
         }
     }
