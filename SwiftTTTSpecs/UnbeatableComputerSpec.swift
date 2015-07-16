@@ -29,8 +29,18 @@ public class UnbeatableComputerSpec: QuickSpec {
                 }
                 
                 it("creates a fork for itself") {
-                    let board = Board.init(state: "_X_|XOX|_O_")
+                    var board = Board.init(state: "_X_|XOX|_O_")
                     expect(computer.nextMove(board)).to(equal(6))
+                    
+                    board = Board.init(state: "_O_|XOX|_X_")
+                    expect(computer.nextMove(board)).to(equal(0))
+                    
+                    board = Board.init(state: "_X_|XOO|_X_")
+                    expect(computer.nextMove(board)).to(equal(2))
+
+                    board = Board.init(state: "_X_|OOX|_X_")
+                    expect(computer.nextMove(board)).to(equal(0))
+                    
                 }
             }
         }
