@@ -19,5 +19,10 @@ public struct Board {
             return result && mark == Mark.Blank
         }
     }
+    
+    public func isMarked(at spot: Int) -> Bool {
+        return self.marks[spot] != Mark.Blank
+    }
+    
 
 }
