@@ -15,12 +15,12 @@ public class UnbeatableComputerSpec: QuickSpec {
             
             describe("Choosing the next move") {
                 it("wins when it can") {
-                    let board = mutableBoardWithMarksAtPositions([.O: [0, 1]])
+                    let board = Board.init(state: "OO_|___|___")
                     expect(computer.nextMove(board)).to(equal(2))
                 }
                 
                 it("blocks an opponent's win") {
-                    let board = mutableBoardWithMarksAtPositions([.X: [3, 4]])
+                    let board = Board.init(state: "___|XX_|___")
                     expect(computer.nextMove(board)).to(equal(5))
                 }
             }

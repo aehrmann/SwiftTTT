@@ -7,12 +7,12 @@ public class MainViewController: UIViewController {
 
     private var nextMark = Mark.X
 
-    public var board: MutableBoard!
-    public var rules: BasicRules!
+    public var board: Board!
+    public var rules: Rules!
 
     override public func viewDidLoad() {
-        board = MutableBoard()
-        rules = BasicRules()
+        board = Board()
+        rules = Rules()
         for button in gridButtons {
             button.setTitle("", forState: .Normal)
         }
@@ -20,11 +20,11 @@ public class MainViewController: UIViewController {
     }
 
     public func xIsWinner() -> Bool {
-        return rules.markIsWinner(.X, of: board)
+        return rules.playerWins(board)
     }
 
     public func oIsWinner() -> Bool {
-        return rules.markIsWinner(.O, of: board)
+        return rules.opponentWins(board)
     }
 
     public func gameIsDraw() -> Bool {
@@ -39,7 +39,7 @@ public class MainViewController: UIViewController {
 
     public func updatePosition(position: Int) {
         if isBlank(position) {
-            board.placeMark(nextMark, at: position)
+            board = board.marked(with: nextMark, at: position)
             setTextForPosition(position)
 
             checkWinOrDraw()
@@ -49,9 +49,9 @@ public class MainViewController: UIViewController {
     }
 
     private func checkWinOrDraw() {
-        if rules.markIsWinner(.X, of: board) {
+        if rules.playerWins(board) {
             winnerLabel?.text = "X is the winner!"
-        } else if rules.markIsWinner(.O, of: board) {
+        } else if rules.opponentWins(board) {
             winnerLabel?.text = "O is the winner!"
         } else if rules.isDraw(board) {
             winnerLabel?.text = "Draw game!"
