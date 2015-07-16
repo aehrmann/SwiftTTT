@@ -14,12 +14,7 @@
 		847D4D9C1B55A6DD0086D79B /* UnbeatableComputerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8450BD101B5597DD00307B42 /* UnbeatableComputerSpec.swift */; };
 		847D4D9E1B55A7540086D79B /* UnbeatableComputer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D4D9D1B55A7540086D79B /* UnbeatableComputer.swift */; };
 		A8E58E3F6F600374D0E3D945 /* Pods_SwiftTTTSpecs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9ADF756A52041EBE94F6348 /* Pods_SwiftTTTSpecs.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		FF3059131B4C8C44004CA2A6 /* MutableBoardHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF30590F1B4C8C44004CA2A6 /* MutableBoardHelper.swift */; };
-		FF3059141B4C8C44004CA2A6 /* MutableBoardSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3059101B4C8C44004CA2A6 /* MutableBoardSpec.swift */; };
-		FF3059161B4C8C44004CA2A6 /* BasicRulesSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3059121B4C8C44004CA2A6 /* BasicRulesSpec.swift */; };
-		FF30591C1B4C8C67004CA2A6 /* MutableBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3059181B4C8C67004CA2A6 /* MutableBoard.swift */; };
 		FF30591E1B4C8C67004CA2A6 /* Mark.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF30591A1B4C8C67004CA2A6 /* Mark.swift */; };
-		FF30591F1B4C8C67004CA2A6 /* BasicRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF30591B1B4C8C67004CA2A6 /* BasicRules.swift */; };
 		FFAFE32E1B4F05EE009AA6B8 /* MainViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAFE32D1B4F05EE009AA6B8 /* MainViewControllerSpec.swift */; };
 		FFAFE3301B4F0613009AA6B8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFAFE32F1B4F0613009AA6B8 /* MainViewController.swift */; };
 		FFDD17FD1B4C899600C64381 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDD17FC1B4C899600C64381 /* AppDelegate.swift */; };
@@ -49,12 +44,7 @@
 		93FA4AB4B4100DB8B203DC63 /* Pods-SwiftTTTSpecs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftTTTSpecs.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftTTTSpecs/Pods-SwiftTTTSpecs.release.xcconfig"; sourceTree = "<group>"; };
 		97C79A3E7C908CAFBA103D04 /* Pods-SwiftTTTSpecs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftTTTSpecs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftTTTSpecs/Pods-SwiftTTTSpecs.debug.xcconfig"; sourceTree = "<group>"; };
 		A9ADF756A52041EBE94F6348 /* Pods_SwiftTTTSpecs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftTTTSpecs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FF30590F1B4C8C44004CA2A6 /* MutableBoardHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutableBoardHelper.swift; sourceTree = "<group>"; };
-		FF3059101B4C8C44004CA2A6 /* MutableBoardSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutableBoardSpec.swift; sourceTree = "<group>"; };
-		FF3059121B4C8C44004CA2A6 /* BasicRulesSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicRulesSpec.swift; sourceTree = "<group>"; };
-		FF3059181B4C8C67004CA2A6 /* MutableBoard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MutableBoard.swift; sourceTree = "<group>"; };
 		FF30591A1B4C8C67004CA2A6 /* Mark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mark.swift; sourceTree = "<group>"; };
-		FF30591B1B4C8C67004CA2A6 /* BasicRules.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicRules.swift; sourceTree = "<group>"; };
 		FFAFE32D1B4F05EE009AA6B8 /* MainViewControllerSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewControllerSpec.swift; sourceTree = "<group>"; };
 		FFAFE32F1B4F0613009AA6B8 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FFDD17F71B4C899600C64381 /* SwiftTTT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftTTT.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -106,9 +96,6 @@
 		FF3059171B4C8C4A004CA2A6 /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				FF30590F1B4C8C44004CA2A6 /* MutableBoardHelper.swift */,
-				FF3059101B4C8C44004CA2A6 /* MutableBoardSpec.swift */,
-				FF3059121B4C8C44004CA2A6 /* BasicRulesSpec.swift */,
 				8450BD101B5597DD00307B42 /* UnbeatableComputerSpec.swift */,
 				8409C4631B571A9600F3D2DE /* BoardSpec.swift */,
 				8409C4651B571B2E00F3D2DE /* SwiftTTT.playground */,
@@ -120,9 +107,7 @@
 		FF3059201B4C8C6C004CA2A6 /* Game */ = {
 			isa = PBXGroup;
 			children = (
-				FF3059181B4C8C67004CA2A6 /* MutableBoard.swift */,
 				FF30591A1B4C8C67004CA2A6 /* Mark.swift */,
-				FF30591B1B4C8C67004CA2A6 /* BasicRules.swift */,
 				847D4D9D1B55A7540086D79B /* UnbeatableComputer.swift */,
 				8409C4661B57203000F3D2DE /* Board.swift */,
 				843598241B572ECB006A0EF7 /* Rules.swift */,
@@ -359,9 +344,7 @@
 			files = (
 				FFDD17FD1B4C899600C64381 /* AppDelegate.swift in Sources */,
 				843598251B572ECB006A0EF7 /* Rules.swift in Sources */,
-				FF30591C1B4C8C67004CA2A6 /* MutableBoard.swift in Sources */,
 				FF30591E1B4C8C67004CA2A6 /* Mark.swift in Sources */,
-				FF30591F1B4C8C67004CA2A6 /* BasicRules.swift in Sources */,
 				8409C4671B57203000F3D2DE /* Board.swift in Sources */,
 				FFAFE3301B4F0613009AA6B8 /* MainViewController.swift in Sources */,
 				847D4D9E1B55A7540086D79B /* UnbeatableComputer.swift in Sources */,
@@ -373,12 +356,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				847D4D9C1B55A6DD0086D79B /* UnbeatableComputerSpec.swift in Sources */,
-				FF3059141B4C8C44004CA2A6 /* MutableBoardSpec.swift in Sources */,
-				FF3059131B4C8C44004CA2A6 /* MutableBoardHelper.swift in Sources */,
 				8409C4641B571A9600F3D2DE /* BoardSpec.swift in Sources */,
 				FFAFE32E1B4F05EE009AA6B8 /* MainViewControllerSpec.swift in Sources */,
 				843598231B572E68006A0EF7 /* RulesSpec.swift in Sources */,
-				FF3059161B4C8C44004CA2A6 /* BasicRulesSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
