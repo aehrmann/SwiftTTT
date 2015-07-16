@@ -2,55 +2,60 @@ public class UnbeatableComputer {
 
     public let mark = Mark.O
     public let rules = Rules()
+    
+    private let userMark = Mark.X
     private var bestMove = 0
     
     public init() { }
     
     public func nextMove(board: Board) -> Int {
-        self.minimaxScore(board, isComputerTurn: true, depth: 0)
-
-        return self.bestMove
-    }
-    
-    private func minimaxScore(board: Board, isComputerTurn: Bool, depth: Int) -> Int {
-        if board.isFull() {
-            return score(board, depth: depth)
-        }
+        var nextBoard: Board!
         
-        var spots = [Int]()
-        var scores = [Int]()
-
         for spot in board.openSpots() {
-
-            let nextMark = isComputerTurn ? Mark.O : Mark.X
-            let nextBoard = board.marked(with: nextMark, at: spot)
-            let scoreValue = self.minimaxScore(nextBoard, isComputerTurn: !isComputerTurn, depth: depth + 1)
-            
-            spots.append(spot)
-            scores.append(scoreValue)
+            if hasWin(board, spot: spot) || blocks(board, spot: spot) {
+                return spot
+            }
+            if canFork(board, spot: spot) {
+                return spot
+            }
         }
         
-        if isComputerTurn {
-            let maxScore = scores.reduce(Int.min) { max($0, $1) }
-            self.bestMove = spots[find(scores, maxScore)!]
-            return maxScore
-        } else {
-            let minScore = scores.reduce(Int.max) { min($0, $1) }
-            self.bestMove = spots[find(scores, minScore)!]
-            return minScore
-        }
+        return -1
     }
     
-    private func score(board: Board, depth: Int) -> Int {
-        if computerWins(board) {
-            return 10 - depth
-        } else if userWins(board) {
-            return depth - 10
-        } else {
-            return 0
+    private func canFork(board: Board, spot: Int) -> Bool {
+        return numberPossibleComputerWins(board.marked(with: self.mark, at: spot)) == 2
+    }
+    
+    private func numberPossibleComputerWins(board: Board) -> Int {
+        var numberOfWins = 0
+        for spot in board.openSpots() {
+            if rules.opponentWins(board.marked(with: self.mark, at: spot)) {
+                numberOfWins += 1
+            }
         }
+        return numberOfWins
+    }
+    
+    private func numberPossibleUserWins(board: Board) -> Int {
+        var numberOfWins = 0
+        for spot in board.openSpots() {
+            if rules.playerWins(board.marked(with: userMark, at: spot)) {
+                numberOfWins += 1
+            }
+        }
+        return numberOfWins
+    }
+    
+    private func hasWin(board: Board, spot: Int) -> Bool {
+        return computerWins(board.marked(with: self.mark, at: spot))
+    }
+    
+    private func blocks(board: Board, spot: Int) -> Bool {
+        return userWins(board.marked(with: userMark, at: spot))
     }
 
+    
     private func userWins(board: Board) -> Bool {
         return rules.playerWins(board)
     }

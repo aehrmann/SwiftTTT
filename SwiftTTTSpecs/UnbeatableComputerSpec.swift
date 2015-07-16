@@ -29,30 +29,20 @@ public class UnbeatableComputerSpec: QuickSpec {
                     let board = Board.init(state: "___|XX_|___")
                     expect(computer.nextMove(board)).to(equal(5))
                 }
-                
+
                 it("creates forks for itself") {
                     var board = Board.init(state: "_X_|XOX|_O_")
                     expect(computer.nextMove(board)).to(equal(6))
-                    
+
                     board = Board.init(state: "_O_|XOX|_X_")
                     expect(computer.nextMove(board)).to(equal(0))
-                    
+
                     board = Board.init(state: "_X_|XOO|_X_")
                     expect(computer.nextMove(board)).to(equal(2))
 
                     board = Board.init(state: "_X_|OOX|_X_")
                     expect(computer.nextMove(board)).to(equal(0))
                 }
-                
-                it("blocks a user's fork") {
-                    var board = Board.init(state: "X__|_O_|__X")
-                    expect(computer.nextMove(board)).to(equal(1))
-                }
-                
-//                it("takes the center on an empty board") {
-//                    let emptyBoard = Board.init(state: "___|___|___")
-//                    expect(computer.nextMove(emptyBoard)).to(equal(4))
-//                }
             }
         }
     }
