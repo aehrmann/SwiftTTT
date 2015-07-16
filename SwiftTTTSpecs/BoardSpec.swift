@@ -7,6 +7,8 @@ public class BoardSpec: QuickSpec {
         describe("Board") {
             let emptyBoard = Board.init()
             let testBoard = Board.init(state: "XOX|XXO|OOX")
+            let fullBoard = Board.init(state: "XXO|OOX|XOX")
+            let notFullBoard = Board.init(state: "XXO|___|XOX")
             
             describe("Creating a board") {
                 it("can be initialized as empty") {
@@ -82,10 +84,36 @@ public class BoardSpec: QuickSpec {
                         for i in 0..<expectedDiagonals.count {
                             expect(actualDiagonals[i]).to(equal(expectedDiagonals[i]))
                         }
-
                     }
                 }
 
+                describe("whether the board is full") {
+                    context("when every spot has a non-blank mark") {
+                        it("returns true") {
+                            expect(fullBoard.isFull()).to(beTrue())
+                        }
+                    }
+                    
+                    context("when at least one spot is blank") {
+                        it("returns false") {
+                            expect(notFullBoard.isFull()).to(beFalse())
+                        }
+                    }
+                }
+                
+                describe("retrieving the open spots") {
+                    context("when the board is not full") {
+                        it("returns a list of empty spots") {
+                            expect(notFullBoard.openSpots()).to(equal([3, 4, 5]))
+                        }
+                    }
+                    
+                    context("when the board is full") {
+                        it("returns an empty list") {
+                            expect(fullBoard.openSpots()).to(beEmpty())
+                        }
+                    }
+                }
             }
         }
     }

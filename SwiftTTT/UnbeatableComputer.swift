@@ -1,76 +1,56 @@
 public class UnbeatableComputer {
-    public let mark: Mark = .O
+
+    public let mark = Mark.O
     public let rules = Rules()
+    private var bestMove = 0
     
     public init() { }
     
     public func nextMove(board: Board) -> Int {
-        var nextMove = moveToWinOrBlockNextTurn(board)
-        if isValidMove(nextMove) {
-            return nextMove
+        self.minimaxScore(board, isComputerTurn: true, depth: 0)
+
+        return self.bestMove
+    }
+    
+    private func minimaxScore(board: Board, isComputerTurn: Bool, depth: Int) -> Int {
+        if board.isFull() {
+            return score(board, depth: depth)
         }
         
-        nextMove = moveThatCreatesFork(board)
-        if isValidMove(nextMove) {
-            return nextMove
+        var spots = [Int]()
+        var scores = [Int]()
+
+        for spot in board.openSpots() {
+
+            let nextMark = isComputerTurn ? Mark.O : Mark.X
+            let nextBoard = board.marked(with: nextMark, at: spot)
+            let scoreValue = self.minimaxScore(nextBoard, isComputerTurn: !isComputerTurn, depth: depth + 1)
+            
+            spots.append(spot)
+            scores.append(scoreValue)
         }
-        return -1
-    }
-    
-    private func isValidMove(move: Int) -> Bool {
-        return move >= 0
-    }
-    
-    private func moveThatCreatesFork(board: Board) -> Int {
-        var numberOfPossibleWins = 0
-        var nextBoard: Board!
-        var nextNextBoard: Board!
         
-        for position in openPositions(board) {
-            
-            numberOfPossibleWins = 0
-            
-            nextBoard = nextComputerBoard(board, position: position)
-            
-            for nextPosition in openPositions(nextBoard) {
-                
-                nextNextBoard = nextComputerBoard(nextBoard, position: nextPosition)
-
-                if computerWins(nextNextBoard) {
-                    numberOfPossibleWins += 1
-                }
-                
-                if numberOfPossibleWins == 2 {
-                    return position
-                }
-            }
+        if isComputerTurn {
+            let maxScore = scores.reduce(Int.min) { max($0, $1) }
+            self.bestMove = spots[find(scores, maxScore)!]
+            return maxScore
+        } else {
+            let minScore = scores.reduce(Int.max) { min($0, $1) }
+            self.bestMove = spots[find(scores, minScore)!]
+            return minScore
         }
-        return -1
     }
-
-    private func moveToWinOrBlockNextTurn(board: Board) -> Int {
-        var nextBoard: Board!
-        
-        for position in openPositions(board) {
-            if computerWins(nextComputerBoard(board, position: position)) || userWins(nextUserBoard(board, position: position)) {
-                return position
-            }
+    
+    private func score(board: Board, depth: Int) -> Int {
+        if computerWins(board) {
+            return 10 - depth
+        } else if userWins(board) {
+            return depth - 10
+        } else {
+            return 0
         }
-        return -1
+    }
 
-    }
-    
-    private func nextUserBoard(board: Board, position: Int) -> Board {
-        return board.marked(with: Mark.X, at: position)
-    }
-    
-    private func nextComputerBoard(board: Board, position: Int) -> Board {
-        return board.marked(with: Mark.O, at: position)
-    }
-    
-    private func openPositions(board: Board) -> [Int] {
-        return Array(0..<9).filter { !board.isMarked(at: $0) }
-    }
     private func userWins(board: Board) -> Bool {
         return rules.playerWins(board)
     }

@@ -3,7 +3,9 @@ import Nimble
 import SwiftTTT
 
 public class UnbeatableComputerSpec: QuickSpec {
+
     override public func spec() {
+        
         describe("UnbeatableComputer") {
             let computer = UnbeatableComputer()
             
@@ -28,7 +30,7 @@ public class UnbeatableComputerSpec: QuickSpec {
                     expect(computer.nextMove(board)).to(equal(5))
                 }
                 
-                it("creates a fork for itself") {
+                it("creates forks for itself") {
                     var board = Board.init(state: "_X_|XOX|_O_")
                     expect(computer.nextMove(board)).to(equal(6))
                     
@@ -40,8 +42,17 @@ public class UnbeatableComputerSpec: QuickSpec {
 
                     board = Board.init(state: "_X_|OOX|_X_")
                     expect(computer.nextMove(board)).to(equal(0))
-                    
                 }
+                
+                it("blocks a user's fork") {
+                    var board = Board.init(state: "X__|_O_|__X")
+                    expect(computer.nextMove(board)).to(equal(1))
+                }
+                
+//                it("takes the center on an empty board") {
+//                    let emptyBoard = Board.init(state: "___|___|___")
+//                    expect(computer.nextMove(emptyBoard)).to(equal(4))
+//                }
             }
         }
     }

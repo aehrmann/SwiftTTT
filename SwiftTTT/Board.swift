@@ -4,6 +4,7 @@ public struct Board {
     public init() {
         self.init(marks: [Mark](count: 9, repeatedValue: Mark.Blank))
     }
+    
     public init(marks: [Mark]) {
         self.marks = marks
     }
@@ -25,6 +26,17 @@ public struct Board {
             return result && mark == Mark.Blank
         }
     }
+    
+    public func isFull() -> Bool {
+        return self.marks.reduce(true) { result, mark in
+            return result && mark != .Blank
+        }
+    }
+    
+    public func openSpots() -> [Int] {
+        return Array(0..<9).filter { !self.isMarked(at: $0) }
+    }
+
     
     public func isMarked(at spot: Int) -> Bool {
         return self.marks[spot] != Mark.Blank
@@ -50,8 +62,6 @@ public struct Board {
         
         return sets
     }
-    
-    
     
     public func markSets(byIndices indexer: Int -> Int) -> [[Mark]] {
         var sets = Array(count: 3, repeatedValue: Array<Mark>())
