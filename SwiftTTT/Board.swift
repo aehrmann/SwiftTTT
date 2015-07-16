@@ -33,6 +33,21 @@ public struct Board {
     public func markAt(spot: Int) -> Mark {
         return self.marks[spot]
     }
+    
+    public func rows() -> [[Mark]] {
+        var allRows = Array<[Mark]>()
+        
+        var row = [Mark]()
+        for i in 0..<9 {
+            row.append(markAt(i))
+            if i % 3 == 2 {
+                allRows.append(row)
+                row = [Mark]()
+            }
+        }
+        return allRows
+
+    }
 
 }
 

@@ -48,6 +48,19 @@ public class BoardSpec: QuickSpec {
                         }
                     }
                 }
+                
+                describe("retrieving the rows") {
+                    it("returns the rows of the board") {
+                        let board = Board.init(state: "XOX|XXO|OOX")
+                        let actualRows = board.rows()
+                        let expectedRows: [[Mark]] = [[.X, .O, .X],
+                                                      [.X, .X, .O],
+                                                      [.O, .O, .X]]
+                        for i in 0..<expectedRows.count {
+                            expect(actualRows[i]).to(equal(expectedRows[i]))
+                        }
+                    }
+                }
             }
         }
     }
