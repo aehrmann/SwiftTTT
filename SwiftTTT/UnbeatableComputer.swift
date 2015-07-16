@@ -1,5 +1,6 @@
 public class UnbeatableComputer {
     public let mark: Mark = .O
+    public let rules = Rules()
     
     public init() { }
     
@@ -22,4 +23,5 @@ public class UnbeatableComputer {
         }
         return 0
     }
+
 }

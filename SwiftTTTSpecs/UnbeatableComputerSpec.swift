@@ -11,6 +11,10 @@ public class UnbeatableComputerSpec: QuickSpec {
                 it("stores O as its mark") {
                     expect(computer.mark).to(equal(Mark.O))
                 }
+                
+                it("creates a rule set") {
+                    expect(computer.rules).notTo(beNil())
+                }
             }
             
             describe("Choosing the next move") {
