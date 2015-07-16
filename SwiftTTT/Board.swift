@@ -8,6 +8,12 @@ public struct Board {
         self.marks = marks
     }
     
+    public init(state: String) {
+        let characters = map(state) { $0 }
+        let filteredCharacters = filter(characters) { $0 != "|" }
+        self.marks = map(filteredCharacters) { Mark(rawValue: $0)! }
+    }
+    
     public func marked(with mark: Mark, at spot: Int) -> Board {
         var newMarks = self.marks
         newMarks[spot] = mark
@@ -29,3 +35,4 @@ public struct Board {
     }
 
 }
+
