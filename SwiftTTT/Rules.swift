@@ -12,6 +12,10 @@ public struct Rules {
         return isWinningMark(mark: opponent, on: board)
     }
  
+    public func hasWinFor(mark: Mark, on board: Board) -> Bool {
+        return isWinningMark(mark: mark, on: board)
+    }
+    
     public func isDraw(board: Board) -> Bool {
         var full = true
         for i in 0..<9 {

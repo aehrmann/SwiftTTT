@@ -71,6 +71,23 @@ public class RulesSpec: QuickSpec {
                 }
             }
             
+            describe("reporting a win for any mark") {
+                it("returns true when a mark wins") {
+                    let board = Board.init(state: "XXX|___|___")
+                    expect(rules.hasWinFor(Mark.X, on: board)).to(beTrue())
+                }
+                
+                it("returns true for any mark winning") {
+                    let board = Board.init(state: "___|OOO|___")
+                    expect(rules.hasWinFor(Mark.O, on: board)).to(beTrue())
+                }
+                
+                it("returns false when there is no win for a mark") {
+                    let board = Board.init(state: "___|___|___")
+                    expect(rules.hasWinFor(Mark.X, on: board)).to(beFalse())
+                }
+            }
+            
             describe("Reporting a draw") {
 
                 var noWinBoard = Board.init(state: "XOX|OXO|OOX")
