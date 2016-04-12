@@ -15,7 +15,9 @@ development practices on iOS.
 
 #### Running tests
 	After opening SwiftTTT.xcworkspace in XCode:
-      select Product > Test (or Cmd-U) from the application menu *(curently not passing for versioning issues)*
+      select Product > Test (or Cmd-U) from the application menu 
+      
+_Note: tests are currently not passing because the app was developed with older versions of Swift, XCode, and Quick_
 
 ### Version Information
 	- XCode version 6.4 (6E35b)
