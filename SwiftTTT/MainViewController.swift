@@ -32,7 +32,7 @@ public class MainViewController: UIViewController {
     }
 
     @IBAction func buttonPressed(sender: UIButton) {
-        if let position = find(gridButtons, sender) {
+        if let position = gridButtons.indexOf(sender) {
             updatePosition(position)
         }
     }

@@ -1,4 +1,4 @@
-public enum Mark: Character, Printable {
+public enum Mark: Character, CustomStringConvertible {
     case X = "X"
     case O = "O"
     case Blank = "_"

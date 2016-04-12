@@ -1,5 +1,8 @@
 # TicTacToe in Swift
 
+This is a very simple game of Tic Tac Toe, used in trying to learn test-driven 
+development practices on iOS.
+
 #### Initial Setup
 	1. Clone repo 
 	2. Run `bundle install` to install Cocoapods
@@ -12,7 +15,7 @@
 
 #### Running tests
 	After opening SwiftTTT.xcworkspace in XCode:
-		select Product > Test (or Cmd-U) from the application menu
+      select Product > Test (or Cmd-U) from the application menu *(curently not passing for versioning issues)*
 
 ### Version Information
 	- XCode version 6.4 (6E35b)

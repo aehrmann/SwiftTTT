@@ -4,7 +4,7 @@ public class UnbeatableComputer {
     public init() { }
     
     public func nextMove(board: MutableBoard) -> Int {
-        var openPositions = Array(0..<9).filter { board.isBlank($0) }
+        let openPositions = Array(0..<9).filter { board.isBlank($0) }
         var nextBoard: MutableBoard!
         let rules = Rules()
         
@@ -25,7 +25,7 @@ public class UnbeatableComputer {
     }
     
     private func createNextBoard(with mark: Mark, at position: Int, on board: MutableBoard) -> MutableBoard {
-        var nextBoard = MutableBoard()
+        let nextBoard = MutableBoard()
         for i in 0..<9 {
             nextBoard.placeMark(board.markAt(i), at: i)
         }
